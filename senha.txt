@@ -1,0 +1,30 @@
+Professor: password
+Email: professor@educapdf.com
+
+Como instalar (XAMPP, WAMP ou Laragon)
+
+Extraia a pasta educa-pdf para htdocs (ou www).
+No phpMyAdmin, importe database/educa_pdf.sql. Isto cria a base educa_pdf com 6 livros e 9 categorias de exemplo.
+Ajuste config/config.php se a sua senha do MySQL for diferente ou se o projeto não estiver em /educa-pdf.
+Abra http://localhost/educa-pdf/.
+
+
+
+Telas do seu design
+
+Login e registo: com botão para mostrar a senha. Contas novas entram como “aluno”; o professor promove-as em Usuários. Os botões Google, Facebook e Apple do design não estão implementados.
+Explorar livros: categorias, pesquisa, ordenação e paginação.
+Detalhes do livro: abas Descrição, Conteúdo e Avaliações (estrelas e comentário), com Baixar PDF, Ler online, guardar e favoritar.
+Meus Livros e Favoritos: as duas abas do seu design.
+Leitura online: leitor de PDF com navegação por página e setas do teclado, zoom, ecrã inteiro e memória da última página lida.
+Área do professor:
+Dashboard: estatísticas, gráfico de livros por categoria, últimos livros e tabela de categorias.
+Gestão: livros com envio de PDF e capa (adicionar, editar e excluir), categorias, usuários e estatísticas.
+
+Pontos a ter em conta
+
+Os 6 livros de exemplo usam todos o mesmo PDF (exemplo.pdf) e capas geradas por cor, até enviar os seus.
+Para PDFs grandes, aumente upload_max_filesize e post_max_size no php.ini.
+Em Apache, a pasta dos PDFs está bloqueada por .htaccess, e o acesso passa por baixar.php (exige login). Em Nginx há uma regra equivalente no README.md.
+O sistema usa consultas preparadas, senhas com hash e token CSRF nos formulários.
+Bootstrap, Bootstrap Icons, PDF.js e Chart.js são carregados por CDN, por isso precisa de internet na primeira abertura.
